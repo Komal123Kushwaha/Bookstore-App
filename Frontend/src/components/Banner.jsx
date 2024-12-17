@@ -29,7 +29,7 @@ function Banner() {
 </label>
 
 <button className="btn btn-secondary">
-  Secondary
+  Get Started
   
 </button>
 
