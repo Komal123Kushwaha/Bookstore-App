@@ -10,9 +10,9 @@ function Banner() {
       Hello,welcomes here to learn something {" "}
       <span className=" text-pink-500">new everyday!!!</span>
       </h1>
-      <p className="text-xl">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-        Cum deleniti fugit quam quidem magnam dolorum sit facilis, accusantium sed molestias!
-         
+      <p className="text-l">Welcome to bookStore, your ultimate online bookstore! 
+        Discover a vast collection of books across all genres, from thrilling fiction and inspiring non-fiction to educational materials and children's books. Whether you're a casual reader or a passionate bibliophile, we offer easy browsing, secure payments, and fast delivery to bring your favorite books right to your doorstep.
+         Dive into the world of stories with us today!
           </p>
           <label className="input input-bordered flex items-center gap-2">
   <svg

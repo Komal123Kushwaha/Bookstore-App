@@ -1,17 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import list from "../../public/list.json"; // Ensure this path is correct
+
+
 import Cards from './Cards'; // Import your Cards component
 import {Link} from "react-router-dom"
+import axios from "axios"
+
 function Course() {
+  const[book,setBook]=useState([])
+  useEffect(() =>{
+    const getBook=async()=>{
+      try{
+        const res =await axios.get("http://localhost:4001/book");
+        console.log(res.data)
+        setBook(res.data)
+
+      } catch(error){
+        console.log(error)
+      }
+    };
+    getBook();
+    
+  },[])
   const [selectedCategory, setSelectedCategory] = useState('Free'); // Default category is 'Free'
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     // Filter the list based on selected category
-    const filterData = list.filter((data) => data.category === selectedCategory);
+    const filterData = book.filter((data) => data.category === selectedCategory);
     setFilteredData(filterData);
-  }, [selectedCategory]); // Re-run the filter when the category changes
-
+  }, [selectedCategory, book]); // Re-run the filter when category or book changes
+  
   return (
     <>
       <div className="max-w-screen-2xl container mx-auto md:px-20 px-4">
@@ -20,11 +38,8 @@ function Course() {
             We're delighted to have you <span className="text-pink-500"> Here! :)</span>
           </h1>
           <p className="mt-12 ">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro sunt eaque,
-            deserunt sint obcaecati dolores tempora! Eveniet illum tenetur rerum modi officiis
-            sint quidem vero aliquam dolor? Cum animi consequatur consectetur nemo velit, earum
-            quo doloremque odio dolores dolorem eligendi vitae, unde, quis expedita odit tenetur
-            ratione quaerat doloribus officia!
+          "Step into the world of learning with our Exclusive Courses at bookStore Designed for book lovers and curious minds, our courses cover a variety of topics to expand your horizons. Whether you're looking to enhance your skills, explore new subjects, or complement your reading journey, we've got you covered. Learn at your own pace with easy-to-follow lessons and expert guidance. Plus, enjoy special discounts on course materials when you shop with us. 
+          Start your journey of growth and discovery today—because knowledge is the best gift you can give yourself!"
           </p>
 
           {/* Dropdown for category selection */}
